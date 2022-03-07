@@ -18,7 +18,7 @@ export default function Footer() {
               height={80}
               quality={100}
             />
-            proyecto mastergames by devflorez</a>
+            mastergames project by devflorez</a>
             </Link>
        
           </Grid.Column>

@@ -7,5 +7,12 @@
 @import  "../components/Layout/Layout.scss";
 @import  "../components/Navbar/Navbar.scss";
 @import  "../components/Footer/Footer.scss";
+@import "../components/CardGame/CardGame.scss";
+@import "../components/Hero/Hero.scss";
+@import "../components/Loading/Loading.scss";
+@import "../components/Faild/Faild.scss";
+@import "../components/LayoutAuth/LayoutAuth.scss";
 //PAGES
 @import "../pages/index.scss";
+@import "../pages/auth/auth.scss";
+@import "../pages/platforms/platforms.scss";

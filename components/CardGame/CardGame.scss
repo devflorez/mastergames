@@ -1,0 +1,38 @@
+.cardGame {
+  background-color: $secondary;
+  border-radius: 15px;
+  cursor: pointer;
+  padding: 15px;
+  min-height: 350px;
+  display: flex;
+  height: 100%;
+  flex-direction: column;
+  gap: 5px;
+  h2,
+  p {
+    color: $white;
+  }
+  h2 {
+    text-align: center;
+    margin: 0 !important;
+  }
+  &--category {
+    display: flex;
+    gap: 10px;
+    justify-content: center;
+    align-items: center;
+    span {
+      color: $primary;
+      font-family: "IntroRust", sans-serif;
+    }
+    &--platform {
+      background-color: $white;
+      border-radius: 15px;
+        padding: 5px;
+    }
+  }
+  &:hover {
+    background-color: $black;
+    transform: scale(1.05);
+  }
+}

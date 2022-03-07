@@ -1,8 +1,11 @@
 //IMPORT INDEX
 @import "./index.scss"; // Importamos el archivo index.scss que contienen todos los etilos de cada uno de los elemnto d ela pagina
 main {
-  h1,h2,h3,a{
-    font-family: "IntroRust" , sans-serif;
+  h1,
+  h2,
+  h3,
+  a {
+    font-family: "IntroRust", sans-serif;
   }
   h1 {
     font-size: 36px;
@@ -14,10 +17,15 @@ main {
     font-size: 18px;
   }
   p {
-    font-family: "Abel" , sans-serif;
+    font-family: "Abel", sans-serif;
     font-size: 14px;
   }
   a {
     font-size: 12px;
   }
+}
+.loading {
+  width: 100%;
+  height: 100px;
+  
 }

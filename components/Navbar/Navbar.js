@@ -1,8 +1,9 @@
 import React, { useState } from "react";
-import { Menu, Container } from "semantic-ui-react";
+import { Menu, Container, Dropdown, Modal } from "semantic-ui-react";
 import Image from "next/image";
 import { Icon } from "@iconify/react";
 import Link from "next/link";
+import Auth from "../../components/Auth";
 export default function Navbar() {
   const [activeMenu, setActiveMenu] = useState(false);
   const handleClick = () => {
@@ -27,24 +28,26 @@ export default function Navbar() {
             </Menu.Item>
           </Link>
 
-          <Menu.Menu position="right" className="navbar--desktop">
-            <Link href="/recomendados" passHref>
-              <Menu.Item name="recomendados" />
+          <Menu.Menu className="navbar--desktop">
+            <Link href="/recommended" passHref>
+              <Menu.Item name="recommended" />
             </Link>
-            <Link href="/plataformas" passHref>
-              <Menu.Item name="plataformas" />
-            </Link>
+            <Dropdown item text="platforms">
+              <Dropdown.Menu>
+                <Link href="/platforms/pc" passHref>
+                  <Dropdown.Item>PC</Dropdown.Item>
+                </Link>
+                <Link href="/platforms/browser" passHref>
+                  <Dropdown.Item>browser</Dropdown.Item>
+                </Link>
+              </Dropdown.Menu>
+            </Dropdown>
 
             <Menu.Item className="navbar--input">
               <input />
               <Icon icon="fluent:search-square-24-filled" />
             </Menu.Item>
-            <Link href="/autenticacion/iniciar-sesion" passHref>
-              <Menu.Item>
-                <Icon icon="majesticons:login" />
-                Iniciar sesión
-              </Menu.Item>
-            </Link>
+            <Auth />
           </Menu.Menu>
           <Menu.Item
             position="right"
@@ -56,21 +59,21 @@ export default function Navbar() {
         </Menu>
         {activeMenu && (
           <Menu stackable secondary className="navbar--mobile">
-            <Link href="/recomendados" passHref>
-              <Menu.Item name="recomendados" />
+            <Link href="/recommended" passHref>
+              <Menu.Item name="recommended" />
             </Link>
-            <Link href="/plataformas" passHref>
-              <Menu.Item name="plataformas" />
+            <Link href="/platforms" passHref>
+              <Menu.Item name="platforms" />
             </Link>
 
             <Menu.Item className="navbar--input">
               <input />
               <Icon icon="fluent:search-square-24-filled" />
             </Menu.Item>
-            <Link href="/autenticacion/iniciar-sesion" passHref>
+            <Link href="/auth/login" passHref>
               <Menu.Item>
                 <Icon icon="majesticons:login" />
-                Iniciar sesión
+                Login
               </Menu.Item>
             </Link>
           </Menu>

@@ -1,0 +1,13 @@
+.faild {
+  padding: 20px;
+  display: flex;
+  flex-direction: column;
+  place-content: center;
+  text-align: center;
+  align-items: center;
+  min-height: calc(100vh - 180px);
+  &--animations {
+    max-height: 500px;
+    max-width: 500px;
+  }
+}

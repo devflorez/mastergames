@@ -1,0 +1,10 @@
+.load{
+    height: 100vh;
+    display: grid;
+    place-items: center;
+    background-color:black;
+    &--animations{
+        max-height: 500px;
+       max-width: 500px;
+    }
+}

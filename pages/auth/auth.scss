@@ -1,0 +1,38 @@
+.auth {
+  text-align: center;
+  h2{
+    margin: 0px;
+  }
+  .ui.form {
+    .field {
+      label {
+        font-size: 1.5rem;
+      }
+      input {
+        background-color: $secondary;
+        border-radius: 20px;
+        color: $white;
+        border: none;
+
+        &:focus {
+          outline: none;
+          background-color: $secondary;
+          border-radius: 20px;
+          color: $white;
+        }
+      }
+    }
+    .ui.button {
+      background-color: $primary;
+      border-radius: 20px;
+      color: $white;
+      border: none;
+      &:hover {
+        background-color: $primary;
+        border-radius: 20px;
+        color: $white;
+        border: none;
+      }
+    }
+  }
+}

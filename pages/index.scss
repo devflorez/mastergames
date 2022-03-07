@@ -1,5 +1,9 @@
-.home{
-   // background: $primary;
-    color: $white;
-    background-image: url("/assest/1.png");
+.home {
+  //background-color: $white;
+  .ui.container {
+    h2 {
+        margin: 20px;
+      text-align: center;
+    }
+  }
 }
