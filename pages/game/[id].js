@@ -23,10 +23,10 @@ export default function Id() {
   const game = data;
   console.log(game);
   const settings = {
-    customPaging: function(i) {
+    customPaging: function (i) {
       return (
         <a>
-          <Image src={game.screenshots[i].image} width={1920} height={1080}  />
+          <Image src={game.screenshots[i].image} width={1920} height={1080} />
         </a>
       );
     },
@@ -40,9 +40,7 @@ export default function Id() {
     arrows: false,
   };
 
-  const handleClick = () => {
-    window.open(game.game_url, "_blank");
-  };
+
 
   return (
     <Layout>
@@ -61,12 +59,11 @@ export default function Id() {
               </div>
               <ReadMore>{game.description}</ReadMore>
               <div className="game--actions">
-              <button onClick={handleClick} >
-              <Icon icon="simple-icons:pcgamingwiki" />
-                Play
-              </button>
+                <button href={game.game_url} as="a" target="_blank">
+                  <Icon icon="simple-icons:pcgamingwiki" />
+                  Play
+                </button>
               </div>
-  
             </Grid.Column>
             <Grid.Column>
               <Slider {...settings}>

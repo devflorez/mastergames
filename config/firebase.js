@@ -14,13 +14,12 @@ const firebaseConfig = {
   storageBucket: "mastergames-28b87.appspot.com",
   messagingSenderId: "770760065357",
   appId: "1:770760065357:web:728fcdf7c2c1a3f12a7704",
-  measurementId: "G-JPM11QMPLV"
+  measurementId: "G-JPM11QMPLV",
 };
 
 // Initialize Firebase
 const app = initializeApp(firebaseConfig);
-const analytics = getAnalytics(app);
+
 export const auth = getAuth(app);
 
 // export logout function
-
