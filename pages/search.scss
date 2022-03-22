@@ -1,0 +1,18 @@
+.search {
+    margin: 20px;
+  &--result {
+ 
+    &--list {
+  
+     &--empty {
+       display: flex;
+       flex-direction: column;
+       justify-content: center;
+       align-items: center;
+       font-size: 20px;
+       font-family: "IntroRust", sans-serif;
+       color: $primary;
+     }
+    }
+  }
+}

@@ -5,9 +5,7 @@
   z-index: 999;
   .ui.container {
     min-height: 100px;
-    display: flex;
-    align-items: center;
-    justify-content:center ;
+ 
     .ui.menu {
       font-family: "IntroRust", sans-serif;
       font-size: 18px;
@@ -89,6 +87,7 @@
           display: none;
         }
         &.navbar--mobile {
+          place-content: center;
           overflow-x: hidden;
           .item{
             width: auto !important;

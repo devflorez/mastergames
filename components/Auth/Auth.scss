@@ -1,7 +1,8 @@
 .auth {
   text-align: center;
-  h2{
-    margin: 0px;
+  h2 {
+    margin: 5px;
+    font-family: "IntroRust", sans-serif;
   }
   .ui.form {
     .field {
@@ -22,6 +23,9 @@
         }
       }
     }
+    .ui.buttons {
+      gap: 10px;
+    }
     .ui.button {
       background-color: $primary;
       border-radius: 20px;
@@ -33,6 +37,9 @@
         color: $white;
         border: none;
       }
+    }
+    .ui.divider {
+      font-family: "IntroRust", sans-serif;
     }
   }
 }

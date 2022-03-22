@@ -23,10 +23,15 @@ export default function Home() {
   if (error) return <Faild />;
   if (!data) return <Loading />;
   const games = data;
+
+  const randomNumber = Math.floor(Math.random() * games.length);
+
   const indexOfLastGame = currentPage * gamesPerPage;
   const currentGames = games.slice(0, indexOfLastGame);
   const totalPages = Math.ceil(games.length / gamesPerPage);
   const paginate = (pageNumber) => setCurrentPage(pageNumber);
+  const gamesHero = games.slice(randomNumber + 1, randomNumber + 4);
+  console.log(gamesHero);
 
   return (
     <Layout>

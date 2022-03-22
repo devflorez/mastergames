@@ -10,6 +10,8 @@ import { Container,Grid } from "semantic-ui-react";
 import CardGame from "../../components/CardGame";
 import Lottie from "react-lottie-player";
 import animationData from "../../animations/loading.json";
+
+import Link from "next/link";
 const fetcher = (url) => clienteAxios.get(url).then((r) => r.data);
 export default function Platform() {
   const router = useRouter();
@@ -47,7 +49,11 @@ export default function Platform() {
             <Grid stackable columns={3}>
               {currentGames.map((game) => (
                 <Grid.Column key={game.id}>
-                  <CardGame game={game} />
+               <Link href={`/game/${game.id}`}>
+                    <a>
+                      <CardGame game={game} />
+                    </a>
+                  </Link>
                 </Grid.Column>
               ))}
             </Grid>

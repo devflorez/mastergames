@@ -20,8 +20,7 @@ export default function Index() {
       size="mini"
     >
       <Modal.Content>
-    
-        <Login />
+        <Login setOpen={setOpen} />
         <Button>No tienes cuenta?</Button>
       </Modal.Content>
     </Modal>

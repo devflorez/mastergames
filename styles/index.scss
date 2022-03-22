@@ -12,7 +12,12 @@
 @import "../components/Loading/Loading.scss";
 @import "../components/Faild/Faild.scss";
 @import "../components/LayoutAuth/LayoutAuth.scss";
+@import "../components/Auth/Auth.scss";
+@import "../components/ReadMore/ReadMore.scss";
+
 //PAGES
 @import "../pages/index.scss";
-@import "../pages/auth/auth.scss";
+@import "../pages/game/game.scss";
 @import "../pages/platforms/platforms.scss";
+@import "../pages/search.scss";
+@import "../pages/recommended/recommended.scss";

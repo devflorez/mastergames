@@ -4,12 +4,12 @@ import Image from "next/image";
 import { signInWithPopup, GoogleAuthProvider } from "firebase/auth";
 import { auth } from "../../../config/firebase";
 
-export default function Login() {
+export default function Login({ setOpen }) {
   const signInWithGoogle = async () => {
     const provider = new GoogleAuthProvider();
     try {
       const response = await signInWithPopup(auth, provider);
-      console.log(response);
+    setOpen(false);
     } catch (error) {
       console.log(error);
     }
