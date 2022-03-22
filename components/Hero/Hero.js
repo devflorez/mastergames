@@ -13,9 +13,16 @@ export default function Hero() {
           A standalone free-to-play battle royale and modes accessible via Call
           of Duty: Modern Warfare.
         </p>
-        <button>
-        <Icon icon="simple-icons:pcgamingwiki" />
-          PLAY</button>
+        <button
+          onClick={() =>
+            window.open(
+              "https://us.shop.battle.net/en-us/product/call-of-duty-warzone"
+            )
+          }
+        >
+          <Icon icon="simple-icons:pcgamingwiki" />
+          PLAY
+        </button>
       </div>
     </div>
   );
