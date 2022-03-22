@@ -4,9 +4,7 @@ import Image from "next/image";
 import { Button } from "semantic-ui-react";
 import { Icon } from "@iconify/react";
 export default function Hero() {
-  const handleClick = () => {
-    window.open("https://us.shop.battle.net/en-us/product/call-of-duty-warzone", "_blank");
-  };
+
   return (
     <div className="hero">
       <img src="/assets/warzone2.jpg" alt="warzone2" />
@@ -17,7 +15,10 @@ export default function Hero() {
           of Duty: Modern Warfare.
         </p>
         <button
-         onClick={handleClick}
+         href="https://us.shop.battle.net/en-us/product/call-of-duty-warzone"
+         as = "a"
+          target="_blank"
+
         >
           <Icon icon="simple-icons:pcgamingwiki" />
           PLAY
