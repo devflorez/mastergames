@@ -18,7 +18,7 @@ export default function Index() {
       <Container>
         <div className="recommended">
           <h1>Recommended random games</h1>
-          <Grid columns={3}>
+          <Grid columns={3} stackable>
             {gamesRecommend.map((game) => (
               <Grid.Column key={game.id}>
                 <Link href={"/game/" + game.id}>

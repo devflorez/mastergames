@@ -41,7 +41,7 @@ export default function Search() {
           <div className="search--result">
             <h1>Search results</h1>
             <div className="search--result--list">
-              <Grid columns={3}>
+              <Grid columns={3} stackable>
                 {resultado.map((game) => (
                   <Grid.Column key={game.id}>
                     <Link href={"/game/" + game.id}>
