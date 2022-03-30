@@ -8,46 +8,65 @@
     h2 {
       margin: 0px;
     }
-    h2{
-        background-color: $primary;
-        border-radius: 20px;
-        color: white;
-        padding: 10px;
-        font-size: 16px;
+    h2 {
+      background-color: $primary;
+      border-radius: 20px;
+      color: white;
+      padding: 10px;
+      font-size: 16px;
     }
   }
   &--extrainfo {
     display: flex;
- 
+
     align-items: center;
     margin-bottom: 10px;
     gap: 10px;
-    span{
-        background-color: $secondary;
-        border-radius: 20px;
-        color: white;
-        padding: 10px;
-        font-family: "IntroRust", sans-serif;
-
+    span {
+      background-color: $secondary;
+      border-radius: 20px;
+      color: white;
+      padding: 10px;
+      font-family: "IntroRust", sans-serif;
     }
   }
-  &--requirements{
-      .ui.list{
-            .item{
-                font-size: 16px;
-                font-family: "IntroRust", sans-serif;
-                svg{
-             
-                    margin-right: 10px;
-                    color: $primary;
-                }
-            }
+  &--actions {
+    display: flex;
+    gap: 10px;
+    align-items: center;
+
+    &--favorite {
+      color: $primary;
+      font-size: 2rem;
+      cursor: pointer;
+      transition: all 0.3s ease-in-out;
+      &:hover {
+        transform: scale(1.2);
       }
+    }
   }
- button{
-     cursor: pointer;
-       margin-top: 10px;
-       margin-bottom: 10px;
+  &--requirements {
+    .ui.list {
+      .item {
+        font-size: 16px;
+        font-family: "IntroRust", sans-serif;
+        svg {
+          margin-right: 10px;
+          color: $primary;
+        }
+      }
+    }
+  }
+  img {
+    width: 100%;
+    object-fit: cover ;
+    border-radius: 10px;
+    max-height: 300px !important;
+  }
+  button {
+    cursor: pointer;
+    margin-top: 10px;
+    margin-bottom: 10px;
     background-color: $primary;
     display: flex;
     gap: 5px;
@@ -57,11 +76,10 @@
     padding: 10px;
     font-size: 20px;
     font-family: "IntroRust", sans-serif;
-    &:hover{
-        background-color: $secondary;
-        transform: scale(1.05);
-        color: white;
-      
+    &:hover {
+      background-color: $secondary;
+      transform: scale(1.05);
+      color: white;
     }
   }
 }

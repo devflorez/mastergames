@@ -4,18 +4,20 @@ import Image from "next/image";
 import { Icon } from "@iconify/react";
 import Link from "next/link";
 import Auth from "../../components/Auth";
-import { useUser } from "../../context/AuthContext";
-import { auth } from "../../config/firebase";
+import { useSession } from "next-auth/react";
+import { signOut } from "next-auth/react";
 import { useRouter } from "next/router";
 export default function Navbar() {
   const [activeMenu, setActiveMenu] = useState(false);
   const [search, setSearch] = useState("");
   const [load, setLoad] = useState(false);
+  const { status } = useSession();
+
   const router = useRouter();
   const handleClick = () => {
     setActiveMenu(!activeMenu);
   };
-  const { user } = useUser();
+
   useEffect(() => {
     if (load) {
       router.push("/search?q=" + search);
@@ -23,9 +25,7 @@ export default function Navbar() {
       setLoad(true);
     }
   }, [search]);
-  const handleLogout = () => {
-    auth.signOut();
-  };
+
   return (
     <header className="navbar">
       <Container>
@@ -67,7 +67,7 @@ export default function Navbar() {
               />
               <Icon icon="fluent:search-square-24-filled" />
             </Menu.Item>
-            {user ? <MenuUser /> : <Auth />}
+            {status === "authenticated" ? <MenuUser /> : <Auth />}
           </Menu.Menu>
           <Menu.Item
             position="right"
@@ -90,19 +90,15 @@ export default function Navbar() {
               <input />
               <Icon icon="fluent:search-square-24-filled" />
             </Menu.Item>
-            {user ? (
+            {status === "authenticated" ? (
               <>
-                <Menu.Item>
-                  
-                    <Icon icon="fa:user-circle" />
-             
+                {/* <Menu.Item>
+                  <Icon icon="fa:user-circle" />
+                </Menu.Item> */}
+                <Menu.Item onClick={() => router.push("/user/favorites")}>
+                  <Icon icon="ic:round-favorite" />
                 </Menu.Item>
-                <Menu.Item>
-               
-                    <Icon icon="ic:round-favorite" />
-               
-                </Menu.Item>
-                <Menu.Item onClick={handleLogout}>
+                <Menu.Item onClick={() => signOut()}>
                   <Icon icon="majesticons:logout" />
                 </Menu.Item>
               </>
@@ -117,17 +113,16 @@ export default function Navbar() {
 }
 
 function MenuUser() {
-  const { user } = useUser();
-
-  const handleLogout = () => {
-    auth.signOut();
-  };
+  const { data: session, status } = useSession();
+  const router = useRouter();
   return (
-    <Dropdown item text={user.displayName}>
+    <Dropdown item text={session.user.name}>
       <Dropdown.Menu>
-        <Dropdown.Item>Favorites</Dropdown.Item>
-        <Dropdown.Item>Accounts</Dropdown.Item>
-        <Dropdown.Item onClick={handleLogout}>Logout</Dropdown.Item>
+        <Dropdown.Item onClick={() => router.push("/user/favorites")}>
+          Favorites
+        </Dropdown.Item>
+      {/* <Dropdown.Item>Accounts</Dropdown.Item> */}
+        <Dropdown.Item onClick={() => signOut()}>Logout</Dropdown.Item>
       </Dropdown.Menu>
     </Dropdown>
   );

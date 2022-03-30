@@ -1,0 +1,47 @@
+.favorites {
+    margin-top: 20px;
+    h1{
+        text-align: center;
+    }
+  &--content {
+    &--item {
+      background-color: $secondary;
+      border-radius: 20px;
+      color: $white;
+      padding: 10px;
+      cursor: pointer;
+      height: 100%;
+      img {
+        width: 100%;
+       
+        object-fit: cover;
+        border-radius: 10px;
+      }
+      &--infoAction {
+        display: flex;
+        
+        flex-wrap: wrap;
+    
+        align-items: center;
+        justify-content: space-between;
+        button{
+            cursor: pointer;
+            background-color: $primary;
+            border-radius: 20px;
+            color: $white;
+            border: none;
+            padding: 8px;
+            font-size: 20px;
+            font-family: "IntroRust", sans-serif;
+            &:hover {
+                background-color: $primary;
+                border-radius: 20px;
+                color: $white;
+                border: none;
+                transform: scale(1.1);
+            }
+        }
+      }
+    }
+  }
+}

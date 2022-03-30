@@ -27,6 +27,10 @@ main {
 .loading {
   width: 100%;
   height: 100px;
-  
 }
-
+.slick-dots li {
+  background: rgb(230, 36, 36) !important;
+}
+.slick-dots {
+  bottom: 0px !important;
+}

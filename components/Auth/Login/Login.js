@@ -1,50 +1,59 @@
-import React from "react";
+import React , {useState}from "react";
 import { Grid, Form, Button, Message, Icon, Divider } from "semantic-ui-react";
 import Image from "next/image";
-import { signInWithPopup, GoogleAuthProvider } from "firebase/auth";
-import { auth } from "../../../config/firebase";
+import { signIn } from "next-auth/react";
+import { useFormik } from "formik";
+import * as Yup from "yup";
+export default function Login(props ) {
+  const {user} = props;
+  console.log(user.email, "email");
 
-export default function Login({ setOpen }) {
-  const signInWithGoogle = async () => {
-    const provider = new GoogleAuthProvider();
-    try {
-      const response = await signInWithPopup(auth, provider);
-    setOpen(false);
-    } catch (error) {
-      console.log(error);
-    }
-  };
+  const [loading, setLoading] = useState(false);
+  const formik = useFormik({
+    initialValues: initialValues(user.email),
+    validationSchema: Yup.object(validationSchema()),
+    onSubmit: async (formData) => {
+      setLoading(true);
+     
 
+      setLoading(false);
+    },
+  });
   return (
     <div className="auth">
-      <Image
-        src="/assets/logo.svg"
-        width={80}
-        height={80}
-        quality={100}
-        alt="background"
-      />
+      <Form onSubmit={formik.handleSubmit}>
+        <Form.Input
+          placeholder="example@mastergames.com"
+          name="email"
+          type="text"
+          onChange={formik.handleChange}
+          error={formik.errors.email}
+        />
+          <Form.Input
+          placeholder="Password"
+          name="password"
+          type="password"
+          onChange={formik.handleChange}
+          error={formik.errors.password}
+        />
 
-      <h2>Sign in to your account</h2>
-
-      <Form>
-        <Form.Field>
-          <input id="email" type="email" placeholder="Email" />
-        </Form.Field>
-        <Form.Field>
-          <input id="password" type="password" placeholder="Password" />
-        </Form.Field>
-        <Button type="submit">Login</Button>
-        <Divider horizontal>Or continue with</Divider>
-        <Button.Group>
-          <Button icon>
-            <Icon name="facebook" />
-          </Button>
-          <Button icon onClick={signInWithGoogle}>
-            <Icon name="google" />
-          </Button>
-        </Button.Group>
+        <Button type="submit" loading={loading} disabled={loading}>
+          Login
+        </Button>
       </Form>
     </div>
   );
+}
+function initialValues(email) {
+ 
+  return {
+    email:  email ||"",
+    password: "",
+  };
+}
+function validationSchema() {
+  return {
+    email: Yup.string().email(true).required(true),
+    password: Yup.string().required(true),
+  };
 }

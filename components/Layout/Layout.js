@@ -1,7 +1,7 @@
 import React from "react";
 import Navbar from "../Navbar";
 import Footer from "../Footer";
-import { useUser } from "../../context/AuthContext";
+
 import Head from "next/head";
 export default function Layout({ children }) {
   return (
