@@ -1,4 +1,4 @@
-const HOST = "http://localhost:3000/api";
+const HOST = "https://mastergames.vercel.app/api";
 
 export async function getEmail(email) {
   try {
