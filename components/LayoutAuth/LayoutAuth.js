@@ -1,7 +1,8 @@
 import React from "react";
 import Navbar from "../Navbar";
 import Footer from "../Footer";
-
+import Lottie from "react-lottie-player";
+import animationData from "../../animations/faild.json";
 import Head from "next/head";
 import { useSession } from "next-auth/react";
 export default function Layout({ children }) {
@@ -25,7 +26,20 @@ export default function Layout({ children }) {
 
       <Navbar />
       <main>
-        {status === "authenticated" ? children : <h1>You are not logged in</h1>}
+        {status === "authenticated" ? children :
+        
+        <div className="faild">
+        <Lottie
+          loop
+          animationData={animationData}
+          play
+          className="faild--animations"
+        />
+    
+        <h1>You are not logged in</h1>
+      </div>
+    
+       }
       </main>
       <Footer />
     </div>
